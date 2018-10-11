@@ -1,0 +1,28 @@
+
+
+#IfWinActive, Minecraft //hold down left click when ctrl+z is pressed
+{
+^z::Send % "{Click " . ( GetKeyState("LButton") ? "Up}" : "Down}" )
+	   	    
+	Return
+}
+
+#IfWinActive, Minecraft //swings a sword every 0.7 seconds
+{
+^x::
+
+Toggler := !Toggler
+
+SetTimer, Action, % (Toggler) ? 700 : "off"
+
+return
+
+
+
+Action:
+
+Send {LButton}
+
+
+return
+}
